@@ -1,7 +1,6 @@
-image: jelaniwoods/appdev2021-exercism-test
+image:
+  file: .gitpod.Dockerfile
 
-tasks:
-  - init: exercism configure --workspace="~/workspace"
 ports:
   - port: 3000
     onOpen: open-preview

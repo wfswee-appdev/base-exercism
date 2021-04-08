@@ -75,53 +75,20 @@ USER gitpod
 RUN /bin/bash -l -c "gem install htmlbeautifier"
 RUN /bin/bash -l -c "gem install rufo"
 
-# Install Google Chrome
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
-RUN sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-RUN sudo apt-get -y update
-RUN sudo apt-get -y install google-chrome-stable
-
-# Install PostgreSQL
-RUN sudo install-packages postgresql-12 postgresql-contrib-12
-
-# Setup PostgreSQL server for user gitpod
-ENV PATH="$PATH:/usr/lib/postgresql/12/bin"
-ENV PGDATA="/workspace/.pgsql/data"
-RUN mkdir -p ~/.pg_ctl/bin ~/.pg_ctl/sockets \
- && printf '#!/bin/bash\n[ ! -d $PGDATA ] && mkdir -p $PGDATA && initdb -D $PGDATA\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" start\n' > ~/.pg_ctl/bin/pg_start \
- && printf '#!/bin/bash\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" stop\n' > ~/.pg_ctl/bin/pg_stop \
- && chmod +x ~/.pg_ctl/bin/*
-ENV PATH="$PATH:$HOME/.pg_ctl/bin"
-ENV DATABASE_URL="postgresql://gitpod@localhost"
-ENV PGHOSTADDR="127.0.0.1"
-ENV PGDATABASE="postgres"
-
-# This is a bit of a hack. At the moment we have no means of starting background
-# tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the
-# PostgreSQL server is running, and if not starts it.
-RUN printf "\n# Auto-start PostgreSQL server.\n[[ \$(pg_ctl status | grep PID) ]] || pg_start > /dev/null\n" >> ~/.bashrc
-
-USER gitpod
-RUN /bin/bash -l -c "sudo apt update && sudo apt install -y graphviz"
-
 RUN /bin/bash -l -c "curl https://cli-assets.heroku.com/install.sh | sh"
 
 # Install Yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-RUN sudo apt-get update && sudo apt-get install -y nodejs yarn snapd
+RUN sudo apt-get update && sudo apt-get install -y nodejs yarn
 
 RUN sudo apt install -y libpq-dev psmisc lsof
 
 WORKDIR /base-exercism
-RUN sudo curl -L https://github.com/exercism/cli/releases/download/v3.0.13/exercism-3.0.13-linux-x86_64.tar.gz --output exercism-3.0.13-linux-x86_64.tar.gz
-RUN sudo mkdir exercism-3.0.13-linux-x86_64
-RUN sudo tar xfz exercism-3.0.13-linux-x86_64.tar.gz -C ./exercism-3.0.13-linux-x86_64
-RUN sudo cp exercism-3.0.13-linux-x86_64/exercism /usr/local/bin/
-RUN sudo apt-get clean
-RUN sudo rm -rf /var/lib/apt/lists/*
-
-USER gitpod
-RUN echo "rvm use 2.7.2" >> ~/.bashrc
-RUN echo "rvm_silence_path_mismatch_check_flag=1" >> ~/.rvmrc
+RUN sudo curl -L https://github.com/exercism/cli/releases/download/v3.0.13/exercism-3.0.13-linux-x86_64.tar.gz --output exercism-3.0.13-linux-x86_64.tar.gz && \
+    && sudo mkdir exercism-3.0.13-linux-x86_64 \
+    && sudo tar xfz exercism-3.0.13-linux-x86_64.tar.gz -C ./exercism-3.0.13-linux-x86_64 \
+    && sudo cp exercism-3.0.13-linux-x86_64/exercism /usr/local/bin/ \
+    && sudo apt-get clean \
+    && sudo rm -rf /var/lib/apt/lists/*
