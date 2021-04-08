@@ -1,8 +1,10 @@
 # Base Exercism
 
-Let's exercise our newfound Ruby enlightenment with Exercism.io.
+Let's exercise our newfound Ruby enlightenment with Exercism.io, a wonderful non-profit project. It's a community for leveling up programming skills through solving problems, discussion, and mentorship.
 
-This is a wonderful non-profit project and community for leveling up through solving problems and mentorship. Sadly, the demand for Ruby mentorship overwhelmed the supply of mentors, so for the time being only the problems are available; but that's okay, because 1) we can mentor each other, and 2) the previous solutions and discussions about them are public and still incredibly useful.
+Sadly, the demand for Ruby mentorship overwhelmed the supply of mentors, so for the time being only historical discussion is available; but that's still great, and 1) we can still review each other, and 2) the previous solutions and discussions about them are public and still incredibly useful.
+
+Furthermore, one of the most valuable things about Exercism is when it comes time to learn new languages (like JavaScript in a couple of weeks). A great way to learn new syntaxes is to solve the same problems that you've already solved before in a familiar language.
 
 #### One-time Setup
 
@@ -15,7 +17,7 @@ This is a wonderful non-profit project and community for leveling up through sol
 7.  For "I would like to install the CLI", select "Using snap".
 8.  You don't actually have to install it though, since we've already installed in the workspace. Click "Yes" and then "Configure the CLI".
 9.  Set your Exercism token by copy-pasting the `exercism configure` command provided at the next screen and running it.
-10. Run the command `exercism configure --workspace="~/workspace"`
+10. Run the command `exercism configure --workspace="/workspace/base-exercism"`
 
 #### Do your first problem
 
@@ -26,15 +28,18 @@ Okay, now you're all done with the one-time setup! Now, for each problem, you'll
     ```
     exercism download --exercise=acronym --track=ruby
     ```
+2.  Work on the problem. It's usually helpful to run the automated tests along the way. In this example,
 
-2.  Work on the problem.
+    ```
+    ruby ruby/acronym/acronym_test.rb
+    ```
 
+    Just like in the Koans, pay attention to how the tests are written — soon you'll have to write tests yourself.
 3.  When you're done, or just if you want to see the community solutions, submit your work with `exercism submit [filename]`; in this example,
 
     ```
     exercism submit ruby/acronym/acronym.rb
     ```
-
 4.  **The most crucial part:** the value in Exercism is not the problems - it's the community. After solving each problem, visit the Community solutions and sort them by most comments/most popular, and read through a few solutions and discussions. What did you learn? Did you encounter a new method you've never seen before? A new way of using blocks? A new class? Write a tiny post for your Today I Learned blog.
 
 #### Do a few more problems
@@ -46,6 +51,4 @@ Before starting each problem:
 1.  Switch to the main branch. You can use `/git` for this, or from the command line, it's `git checkout main`.
 2.  Create a new branch to work on the new problem. From the CLI, it's `git checkout -b name-of-new-branch`.
 3.  Make commits as usual. Make a final commit when you're done.
-4.  Rinse and repeat before starting on the next problem --- remember to **first** switch back to the `main` branch *before* you create a new branch.
-
-​
+4.  Rinse and repeat before starting on the next problem — remember to **first** switch back to the `main` branch *before* you create a new branch.
