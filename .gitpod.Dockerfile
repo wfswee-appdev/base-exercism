@@ -115,12 +115,12 @@ RUN sudo apt-get update && sudo apt-get install -y nodejs yarn snapd
 RUN sudo apt install -y libpq-dev psmisc lsof
 
 WORKDIR /base-exercism
-RUN sudo curl -L https://github.com/exercism/cli/releases/download/v3.0.13/exercism-3.0.13-linux-x86_64.tar.gz --output exercism-3.0.13-linux-x86_64.tar.gz && \
-    sudo mkdir exercism-3.0.13-linux-x86_64 && \
-    tar xfz exercism-3.0.13-linux-x86_64.tar.gz -C ./exercism-3.0.13-linux-x86_64 && \
-    sudo cp exercism-3.0.13-linux-x86_64/exercism /usr/local/bin/ && \
-    sudo apt-get clean && \
-    sudo rm -rf /var/lib/apt/lists/*
+RUN sudo curl -L https://github.com/exercism/cli/releases/download/v3.0.13/exercism-3.0.13-linux-x86_64.tar.gz --output exercism-3.0.13-linux-x86_64.tar.gz
+RUN mkdir exercism-3.0.13-linux-x86_64
+RUN tar xfz exercism-3.0.13-linux-x86_64.tar.gz -C ./exercism-3.0.13-linux-x86_64
+RUN sudo cp exercism-3.0.13-linux-x86_64/exercism /usr/local/bin/
+RUN sudo apt-get clean
+RUN sudo rm -rf /var/lib/apt/lists/*
 
 USER gitpod
 RUN echo "rvm use 2.7.2" >> ~/.bashrc
