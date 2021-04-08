@@ -17,7 +17,11 @@ Furthermore, one of the most valuable things about Exercism is when it comes tim
 7.  For "I would like to install the CLI", select "Using snap".
 8.  You don't actually have to install it though, since we've already installed in the workspace. Click "Yes" and then "Configure the CLI".
 9.  Set your Exercism token by copy-pasting the `exercism configure` command provided at the next screen and running it.
-10. Run the command `exercism configure --workspace="/workspace/base-exercism"`
+10. Finally, run the command:
+    
+    ```
+    exercism configure --workspace="/workspace/base-exercism"
+    ```
 
 #### Do your first problem
 
@@ -28,7 +32,8 @@ Okay, now you're all done with the one-time setup! Now, for each problem, you'll
     ```
     exercism download --exercise=acronym --track=ruby
     ```
-2.  Work on the problem. It's usually helpful to run the automated tests along the way. In this example,
+2.  Work on the problem. Read the instructions given at exercism.io, but usually that means implementing a Ruby class; in this case, located in `ruby/acronym/acronym.rb`.
+3.  It's usually helpful to run the automated tests along the way. In this example,
 
     ```
     ruby ruby/acronym/acronym_test.rb
