@@ -97,3 +97,22 @@ RUN sudo curl -L https://github.com/exercism/cli/releases/download/v3.0.13/exerc
     && sudo cp exercism-3.0.13-linux-x86_64/exercism /usr/local/bin/ \
     && sudo apt-get clean \
     && sudo rm -rf /var/lib/apt/lists/*
+
+# Alias 'git' to 'g'
+RUN echo 'export PATH="$PATH:$GITPOD_REPO_ROOT/bin"' >> ~/.bashrc
+RUN echo " # No arguments: 'git status'\n\
+# With arguments: acts like 'git'\n\
+g() {\n\
+  if [[ \$# > 0 ]]; then\n\
+    git \$@\n\
+  else\n\
+    git status\n\
+  fi\n\
+}\n\
+# Complete g like git\n\
+source /usr/share/bash-completion/completions/git\n\
+__git_complete g __git_main" >> ~/.bash_aliases
+
+# Install web_git
+RUN /bin/bash -l -c "gem install activesupport minitest rack specific_install"
+RUN /bin/bash -l -c "gem specific_install https://github.com/firstdraft/web_git.git -b spring2020"
