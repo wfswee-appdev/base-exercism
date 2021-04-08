@@ -7,15 +7,15 @@ This is a wonderful non-profit project and community for leveling up through sol
 #### One-time Setup
 
  1. Launch the assignment and create the Gitpod workspace. I would suggest Pinning it right away in your dashboard so you don't forget.
- 1. Sign up for an account at exercism.io.
- 1. Select Ruby as your track, Join, and Start Track in Practice Mode when you see the "Oversubscribed" message.
- 1. Select the "Acronym" problem.
- 1. "Begin Walk-through" in the "Getting Started" box on the right.
- 1. For "Which OS do you use", select "Linux".
- 1. For "I would like to install the CLI", select "Using snap".
- 1. You don't actually have to install it though, since we've already installed in the workspace. Click "Yes" and then "Configure the CLI".
- 1. Set your Exercism token by copy-pasting the `exercism configure` command provided at the next screen and running it.
- 1. Run the command `exercism configure --workspace="~/workspace"`
+ 2. 1. Sign up for an account at exercism.io.
+ 3. 2. 1. Select Ruby as your track, Join, and Start Track in Practice Mode when you see the "Oversubscribed" message.
+ 4. Select the "Acronym" problem.
+ 5. "Begin Walk-through" in the "Getting Started" box on the right.
+ 6. For "Which OS do you use", select "Linux".
+ 7. For "I would like to install the CLI", select "Using snap".
+ 8. You don't actually have to install it though, since we've already installed in the workspace. Click "Yes" and then "Configure the CLI".
+ 9. Set your Exercism token by copy-pasting the `exercism configure` command provided at the next screen and running it.
+ 10. Run the command `exercism configure --workspace="~/workspace"`
 
 #### Do your first problem
 
