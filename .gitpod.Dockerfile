@@ -116,11 +116,11 @@ RUN sudo apt install -y libpq-dev psmisc lsof
 
 WORKDIR /base-exercism
 RUN sudo curl -L https://github.com/exercism/cli/releases/download/v3.0.13/exercism-3.0.13-linux-x86_64.tar.gz --output exercism-3.0.13-linux-x86_64.tar.gz && \
-    mkdir exercism-3.0.13-linux-x86_64 && \
+    sudo mkdir exercism-3.0.13-linux-x86_64 && \
     tar xfz exercism-3.0.13-linux-x86_64.tar.gz -C ./exercism-3.0.13-linux-x86_64 && \
-    cp exercism-3.0.13-linux-x86_64/exercism /usr/local/bin/ && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    sudo cp exercism-3.0.13-linux-x86_64/exercism /usr/local/bin/ && \
+    sudo apt-get clean && \
+    sudo rm -rf /var/lib/apt/lists/*
 
 USER gitpod
 RUN echo "rvm use 2.7.2" >> ~/.bashrc
