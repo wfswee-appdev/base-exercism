@@ -1,5 +1,4 @@
-image:
-  file: .gitpod.Dockerfile
+image: jelaniwoods/appdev2021-exercism-test:withless
 
 ports:
   - port: 3000
