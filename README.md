@@ -17,7 +17,7 @@ Furthermore, one of the most valuable things about Exercism is when it comes tim
 7.  For "I would like to install the CLI", select "Using snap".
 8.  You don't actually have to install it though, since we've already installed in the workspace. Click "Yes" and then "Configure the CLI".
 9.  Set your Exercism token by copy-pasting the `exercism configure` command provided at the next screen and running it.
-10. Finally, run the command:
+10. _Finally_, run the command:
     
     ```
     exercism configure --workspace="/workspace/base-exercism"
@@ -49,7 +49,7 @@ Okay, now you're all done with the one-time setup! Now, for each problem, you'll
 
 #### Do a few more problems
 
-Choose a few more problems to do. Some should look familiar from the Ruby Gym --- it might be interesting to try them again now that you have much more experience writing Ruby, and to compare your solutions to your AppDev 1 solution and to the the community solutions. Or you can try some Medium difficulty problems, like Matrix.
+Choose a few more problems to do. Some should look familiar from the Ruby Gym — it might be interesting to try them again now that you have much more experience writing Ruby, and to compare your solutions to your AppDev 1 solution and to the the community solutions. Or you can try some Medium difficulty problems, like Matrix.
 
 Before starting each problem:
 
