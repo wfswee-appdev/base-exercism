@@ -1,4 +1,4 @@
-image: jelaniwoods/appdev2021-exercism-test:withless
+image: jelaniwoods/appdev2021-base-exercism
 
 ports:
   - port: 3000

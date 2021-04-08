@@ -72,19 +72,24 @@ RUN echo "rvm_gems_path=/home/gitpod/.rvm" > ~/.rvmrc
 
 USER gitpod
 # AppDev stuff
-RUN /bin/bash -l -c "gem install htmlbeautifier"
 RUN /bin/bash -l -c "gem install rufo"
 
+# Install heroku-cli
 RUN /bin/bash -l -c "curl https://cli-assets.heroku.com/install.sh | sh"
 
+# Install Node and npm
+RUN curl -fsSL https://deb.nodesource.com/setup_15.x | sudo -E bash - \
+    && sudo apt-get install -y nodejs
+
 # Install Yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list \
+    && sudo apt-get install -y yarn
 
-RUN sudo apt-get update && sudo apt-get install -y nodejs yarn
-
+# Install fuser
 RUN sudo apt install -y libpq-dev psmisc lsof
 
+# Install exercism-cli
 WORKDIR /base-exercism
 RUN sudo curl -L https://github.com/exercism/cli/releases/download/v3.0.13/exercism-3.0.13-linux-x86_64.tar.gz --output exercism-3.0.13-linux-x86_64.tar.gz \
     && sudo mkdir exercism-3.0.13-linux-x86_64 \
