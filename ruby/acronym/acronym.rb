@@ -7,7 +7,13 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class Acronym
-  def self.abbreviate
-    return "Hello world"
+  def self.abbreviate(a_phrase)
+    words = a_phrase.split(/\W+/)
+    p words
+    popped_letters = []
+    words.each do |a_word|
+        popped_letters << a_word[0]
+    end
+    p popped_letters.join.upcase
   end
 end
