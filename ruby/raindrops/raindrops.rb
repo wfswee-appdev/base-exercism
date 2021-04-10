@@ -13,7 +13,7 @@ To get started with TDD, see the `README.md` file in your
 #   just pass the number's digits straight through.
 
 class Raindrops
-    def convert(number)
+    def self.convert(number)
         answer = ""
         number = number.to_i
         if number % 3 == 0 then answer += "Pling"
