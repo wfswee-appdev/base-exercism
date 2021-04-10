@@ -1,7 +1,7 @@
 # Base Exercism
 
 Let’s exercise our newfound Ruby enlightenment with Exercism.io, a wonderful non-profit project. It’s a community for leveling up programming skills through solving problems, discussion, and mentorship.
-
+#asdf
 Sadly, the demand for Ruby mentorship overwhelmed the supply of mentors, so for the time being only historical discussion is available; but that’s still great, and 1) we can still review each other, and 2) the previous solutions and discussions about them are public and still incredibly useful.
 
 Furthermore, one of the most valuable things about Exercism is when it comes time to learn new languages (like JavaScript in a couple of weeks). A great way to learn new syntaxes is to solve the same problems that you’ve already solved before in a familiar language.
