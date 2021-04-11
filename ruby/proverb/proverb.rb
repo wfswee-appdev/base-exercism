@@ -6,23 +6,18 @@ To get started with TDD, see the `README.md` file in your
 `ruby/proverb` directory.
 =end
 
-class Proverb    
-    def initialize(*args)
-        @word_list = *args
-    end
+class Proverb
+  def initialize(*args)
+    final_word = *args[0]
 
-    def write_the_proverb
-        proverb = @word_list.map { |first, second|
-        "For want of a #{first} the #{second} was lost.\n" }
-        p proverb
-    end
-    # def last_line
-    #     "And all for the want of a #{@word_list.first}."
-    # end
+    proverb = *args.each_cons(2).map { |first, second|
+      "For want of a #{first} the #{second} was lost.\n"
+    }
+
+    puts proverb << "And all for the want of a #{final_word[0]}.\n"
+  end
 end
 
-      #  ["nail", "shoe", "horse", "rider"].map { |first, second| "For want of a #{first} the #{second} was lost.\n" }
-
-p Proverb.new("nail", "shoe", "horse", "rider")
-
-
+Proverb.new("nail", "shoe")
+# expected = "For want of a nail the shoe was lost.\n" \
+#   'And all for the want of a nail.'
