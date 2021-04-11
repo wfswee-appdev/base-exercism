@@ -16,13 +16,31 @@ To get started with TDD, see the `README.md` file in your
 # ```
 # assert_equal "variable_1", "variable_1 = 42"[/\w+/]
 
+
+# class Raindrops
+#     def self.convert(number)
+#         answer = ""
+#         if number % 3 == 0 then answer += "Pling" end
+#         if number % 5 == 0 then answer += "Plang" end
+#         if number % 7 == 0 then answer += "Plong" end
+#         if answer == "" then answer += number.to_s end
+
+#             p answer
+#     end
+# end
+
 class Phrase
-    def self.word_count(a_phrase)
-     p a_phrase
-        #  words = a_phrase.to_s
-        #.split[/\w+/]
-        #p words
+        def initialize(a_phrase)
+            @phrase = a_phrase.to_s
+        end
+
+        def words
+         phrase.split.split[/\w+/]
     end
 end
 
-Phrase.word_count(asdf)
+
+phrase = Phrase.new("word")
+    counts = { "word" => 1 }
+    counts == phrase.word_count
+    #assert_equal counts, phrase.word_count
