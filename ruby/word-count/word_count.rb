@@ -14,33 +14,17 @@ To get started with TDD, see the `README.md` file in your
 # come: 1
 # free: 1
 # ```
-# assert_equal "variable_1", "variable_1 = 42"[/\w+/]
-
-
-# class Raindrops
-#     def self.convert(number)
-#         answer = ""
-#         if number % 3 == 0 then answer += "Pling" end
-#         if number % 5 == 0 then answer += "Plang" end
-#         if number % 7 == 0 then answer += "Plong" end
-#         if answer == "" then answer += number.to_s end
-
-#             p answer
-#     end
-# end
 
 class Phrase
-        def initialize(a_phrase)
-            @phrase = a_phrase.to_s
-        end
+  def initialize(a_phrase)
+    @a_phrase = a_phrase
+  end
 
-        def words
-         phrase.split.split[/\w+/]
-    end
+  def word_count
+    word_count = Hash.new(0)
+    words = @a_phrase.downcase.gsub(/   +/, " ").split(/[^0-9a-z']+/)
+
+    words.each { |a_word| word_count[a_word] += 1 }
+    word_count
+  end
 end
-
-
-phrase = Phrase.new("word")
-    counts = { "word" => 1 }
-    counts == phrase.word_count
-    #assert_equal counts, phrase.word_count
