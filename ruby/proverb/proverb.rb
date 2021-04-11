@@ -7,18 +7,24 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class Proverb
-    def initialize(word_list)
-        @word_list = word_list
+    def initialize(*args)
+        @word_list = *args
     end
 
-    def write_proverb
-        @word_list = "For want of a"
+    def write_the_proverb
+        @word_list.map { |first, second| "For want of a #{first} the #{second} was lost.\n" }
+        end
+        p @word_list
+    end
+  
+    def last_line
+        "And all for the want of a #{@word_list.first}."
     end
 
+    write_the_proverb << last_line
 
 end
 
-    proverb = Proverb.new('nail', 'shoe')
-    expected = "For want of a nail the shoe was lost.\n" \
+Proverb.new("nail", "shoe", "horse", "rider")
 
-["nail", "shoe", "horse", "rider", "message", "battle", "kingdom"]
+# ["nail", "shoe", "horse", "rider", "message", "battle", "kingdom"]
