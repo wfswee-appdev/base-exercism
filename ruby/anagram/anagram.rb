@@ -6,3 +6,32 @@ To get started with TDD, see the `README.md` file in your
 `ruby/anagram` directory.
 =end
 
+    # detector = Anagram.new('listen')
+    # anagrams = detector.match(["enlists", "google", "inlets", "banana"])
+    # expected = ["inlets"]
+
+class Anagram
+    def initialize(a_word)
+        @the_characters = a_word.chars
+        p @the_characters
+    end
+    def match(*args)
+        p *args
+
+        array = *args
+        #.to_s.chars.to_a
+
+# arr = ["first", "second", "third"]def threeargs(*arr)#makes three arguments
+
+        p array
+    end
+end
+
+
+
+Anagram.new('diaper')
+ detector = Anagram.new('diaper')
+ anagrams = detector.match(["hello", "world", "zombies", "pants"])
+
+#    expected = []
+#    assert_equal expected, anagrams
