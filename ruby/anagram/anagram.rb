@@ -6,10 +6,6 @@ To get started with TDD, see the `README.md` file in your
 `ruby/anagram` directory.
 =end
 
-# detector = Anagram.new('listen')
-# anagrams = detector.match(["enlists", "google", "inlets", "banana"])
-# expected = ["inlets"]
-
 class Anagram
   def initialize(a_word)
     @the_characters = a_word.chars.sort
