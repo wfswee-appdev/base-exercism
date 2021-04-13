@@ -11,15 +11,22 @@ class Proverb
     final_word = *args[0]
 
     proverb = *args.each_cons(2).map { |first, second|
-      "For want of a #{first} the #{second} was lost.\n"
+      "For want of a #{first} the #{second} was lost.\n "
     }
 
-    puts proverb << "And all for the want of a #{qualifier} #{final_word[0]}."
+    proverb << "And all for the want of a #{qualifier} #{final_word[0]}."
+    verse = ""
+    proverb.each { |line| verse << line}
+
+    p verse
   end
 end
 
-    chain = %w(nail shoe horse rider message battle kingdom)
-    Proverb.new(*chain, qualifier: 'horseshoe')
+Proverb.new('nail', 'shoe', 'horse', 'rider')
+
+
+#    chain = %w(nail shoe horse rider message battle kingdom)
+#    Proverb.new(*chain, qualifier: 'horseshoe')
     # expected = "For want of a nail the shoe was lost.\n" \
     #   "For want of a shoe the horse was lost.\n" \
     #   "For want of a horse the rider was lost.\n" \
