@@ -7,28 +7,43 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class Anagram
-  def initialize(a_word)
-    @the_characters = a_word.chars.sort
-    p @the_characters
-    # get the characters into a single string sorted alphabetically
+  # Below: proposed solution before viewing solutions on exercism, which didn't get all the way there
+
+  #   def initialize(a_word)
+  #     @the_characters = a_word.chars.sort.join
+  #     @the_characters
+  #   end
+
+  #   def match(*args)
+  # array=*args.flatten
+
+  # array_2 = []
+  #  array.each do |arg|
+  #     array_2 << arg.chars.sort.join
+  #  end
+  #  p array_2
+  #   end
+
+  # def last_step
+  #     array_2.each do |a_sorted_input|
+  #     if a_sorted_input == @the_characters
+  #         done << a_word
+  #     end end
+  # end
+
+  # Below: adapted an exercism solution to use initialize
+  def initialize(initial_word)
+    @initial_word = initial_word
+    @initial_word
   end
 
-  def match(*args)
-    p *args.to_s.chars.to_a
+  def match(words)
+    words.select do |word|
+      self.class.anagrams?(@initial_word.downcase, word.downcase)
+    end
+  end
 
-    # get the args into a separate strings sorted alphabetically in an array
-
-    #  array = []
-    #  *args { |arg| array << to_s.chars.to_a }
-
-    # arr = ["first", "second", "third"]def threeargs(*arr)#makes three arguments
-
+  def self.anagrams?(a, b)
+    a != b and a.chars.sort == b.chars.sort
   end
 end
-
-Anagram.new("diaper")
-detector = Anagram.new("diaper")
-anagrams = detector.match(["hello", "world", "zombies", "pants"])
-
-#    expected = []
-#    assert_equal expected, anagrams
