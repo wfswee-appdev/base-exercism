@@ -22,15 +22,4 @@ class Proverb
   end
 end
 
-Proverb.new('nail', 'shoe', 'horse', 'rider')
-
-
-#    chain = %w(nail shoe horse rider message battle kingdom)
-#    Proverb.new(*chain, qualifier: 'horseshoe')
-    # expected = "For want of a nail the shoe was lost.\n" \
-    #   "For want of a shoe the horse was lost.\n" \
-    #   "For want of a horse the rider was lost.\n" \
-    #   "For want of a rider the message was lost.\n" \
-    #   "For want of a message the battle was lost.\n" \
-    #   "For want of a battle the kingdom was lost.\n" \
-    #   'And all for the want of a horseshoe nail.'
+# Proverb.new('nail', 'shoe', 'horse', 'rider')
